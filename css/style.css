@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+img {
+  display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100%;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+main {
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 55% 45%;
+      grid-template-columns: 55% 45%;
+      grid-template-areas: "header box-img" "box-intro box-img";
+}
+
+main .bg {
+  background: url("../images/bg-pattern-desktop.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 100%;
+  padding: 5rem 12rem 5rem 12rem;
+}
+
+main .bg header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: header;
+}
+
+main .bg header .logo {
+  max-width: 250px;
+}
+
+main .bg header .logo img {
+  width: 100%;
+}
+
+main .bg .box-intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: box-intro;
+  margin-top: 10rem;
+  height: calc(100vh - 30rem);
+}
+
+main .bg .box-intro h1 {
+  font-size: 68px;
+  font-weight: 600;
+  max-width: 80%;
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  color: #413a3a;
+}
+
+main .bg .box-intro h1 span {
+  color: #ce9797;
+  font-weight: 300;
+}
+
+main .bg .box-intro p {
+  color: #ce9797;
+  font-size: 16px;
+  max-width: 80%;
+  letter-spacing: 0.1rem;
+  margin-top: auto;
+  line-height: 1.8;
+}
+
+main .bg .box-intro form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 50px;
+  max-width: 75%;
+  justify-self: flex-end;
+  margin-top: auto;
+  position: relative;
+}
+
+main .bg .box-intro form input {
+  outline: none;
+  border-radius: 30px;
+  width: 100%;
+  border: 2px solid #ce9797;
+  padding: 0 2rem;
+  height: 50px;
+  font-size: 16px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
+}
+
+main .bg .box-intro form input::-webkit-input-placeholder {
+  color: #ce9797;
+  opacity: 0.7;
+  letter-spacing: 0.15rem;
+}
+
+main .bg .box-intro form input:-ms-input-placeholder {
+  color: #ce9797;
+  opacity: 0.7;
+  letter-spacing: 0.15rem;
+}
+
+main .bg .box-intro form input::-ms-input-placeholder {
+  color: #ce9797;
+  opacity: 0.7;
+  letter-spacing: 0.15rem;
+}
+
+main .bg .box-intro form input::placeholder {
+  color: #ce9797;
+  opacity: 0.7;
+  letter-spacing: 0.15rem;
+}
+
+main .bg .box-intro form button {
+  border: 0;
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  position: absolute;
+  right: 0;
+  background: linear-gradient(135deg, #f8bfbf 0%, #ee8c8c 100%);
+  cursor: pointer;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+main .bg .box-intro form button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.479);
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.479);
+}
+
+main .box-img {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: box-img;
+}
+
+main .box-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100vh;
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */
