@@ -21,8 +21,8 @@ main {
   height: 100vh;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 55% 45%;
-      grid-template-columns: 55% 45%;
+  -ms-grid-columns: 55% auto;
+      grid-template-columns: 55% auto;
       grid-template-areas: "header box-img" "box-intro box-img";
 }
 
@@ -32,7 +32,7 @@ main .bg {
   background-position: center center;
   background-size: cover;
   height: 100%;
-  padding: 5rem 12rem 5rem 12rem;
+  padding: 7rem 12rem 5rem 12rem;
 }
 
 main .bg header {
@@ -60,12 +60,13 @@ main .bg .box-intro {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: box-intro;
-  margin-top: 10rem;
+  margin-top: 7rem;
   height: calc(100vh - 30rem);
+  max-width: 550px;
 }
 
 main .bg .box-intro h1 {
-  font-size: 68px;
+  font-size: 5rem;
   font-weight: 600;
   max-width: 80%;
   text-transform: uppercase;
@@ -81,7 +82,7 @@ main .bg .box-intro h1 span {
 main .bg .box-intro p {
   color: #ce9797;
   font-size: 16px;
-  max-width: 80%;
+  width: 100%;
   letter-spacing: 0.1rem;
   margin-top: auto;
   line-height: 1.8;
@@ -91,60 +92,72 @@ main .bg .box-intro form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
   height: 50px;
-  max-width: 75%;
+  max-width: 100%;
   justify-self: flex-end;
   margin-top: auto;
   position: relative;
 }
 
-main .bg .box-intro form input {
+main .bg .box-intro form .input {
   outline: none;
-  border-radius: 30px;
+  border-radius: 50px;
   width: 100%;
   border: 2px solid #ce9797;
-  padding: 0 2rem;
-  height: 50px;
+  padding: 1rem 10rem 1rem 2rem;
   font-size: 16px;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 700;
 }
 
-main .bg .box-intro form input::-webkit-input-placeholder {
+main .bg .box-intro form .input::-webkit-input-placeholder {
   color: #ce9797;
   opacity: 0.7;
   letter-spacing: 0.15rem;
 }
 
-main .bg .box-intro form input:-ms-input-placeholder {
+main .bg .box-intro form .input:-ms-input-placeholder {
   color: #ce9797;
   opacity: 0.7;
   letter-spacing: 0.15rem;
 }
 
-main .bg .box-intro form input::-ms-input-placeholder {
+main .bg .box-intro form .input::-ms-input-placeholder {
   color: #ce9797;
   opacity: 0.7;
   letter-spacing: 0.15rem;
 }
 
-main .bg .box-intro form input::placeholder {
+main .bg .box-intro form .input::placeholder {
   color: #ce9797;
   opacity: 0.7;
   letter-spacing: 0.15rem;
+}
+
+main .bg .box-intro form .input.error {
+  border: 2px solid #f96262;
+  padding: 1rem 10rem 1rem 2rem;
+}
+
+main .bg .box-intro form .input.error ~ span.error,
+main .bg .box-intro form .input.error ~ .icon-erro {
+  display: block;
 }
 
 main .bg .box-intro form button {
   border: 0;
-  padding: 1rem 2.5rem;
-  border-radius: 30px;
+  padding: 1rem 3.5rem;
+  height: 52px;
+  border-radius: 50px;
   position: absolute;
   right: 0;
   background: linear-gradient(135deg, #f8bfbf 0%, #ee8c8c 100%);
+  border: 2px solid linear-gradient(135deg, #f8bfbf 0%, #ee8c8c 100%);
   cursor: pointer;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
@@ -157,17 +170,214 @@ main .bg .box-intro form button:hover {
           box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.479);
 }
 
+main .bg .box-intro form .icon-erro {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 25%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+main .bg .box-intro form span.error {
+  display: none;
+  color: #f96262;
+  padding: 0.7rem 2rem;
+  -webkit-animation: opacy 0.3s ease-in-out forwards;
+          animation: opacy 0.3s ease-in-out forwards;
+}
+
 main .box-img {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   -ms-grid-column: 2;
   grid-area: box-img;
+  background: url("../images/hero-desktop.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
 }
 
-main .box-img img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 100vh;
-  width: 100%;
+@media (max-width: 1200px) {
+  main .bg {
+    width: 100%;
+    padding: 7rem 3rem 5rem 3rem;
+  }
+  main .bg .box-intro {
+    max-width: 100%;
+    width: 100%;
+  }
+  main .bg .box-intro h1 {
+    max-width: 100%;
+    font-size: 3.5rem;
+  }
+  main .bg .box-intro p {
+    max-width: 100%;
+    width: 100%;
+  }
+  main .bg .box-intro form {
+    width: 100%;
+    max-width: 100%;
+  }
+  main .bg .box-intro form .input {
+    padding: 1rem 7rem 1rem 2rem;
+  }
+  main .bg .box-intro form .input.error {
+    padding: 1rem 7rem 1rem 2rem;
+  }
+  main .bg .box-intro form button {
+    height: 50px;
+  }
+  main .bg .box-intro form .icon-erro {
+    position: absolute;
+    top: 50%;
+    right: 28%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 780px) {
+  main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  main .bg {
+    padding: 0;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  main .bg header {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: header;
+    width: 100%;
+    position: absolute;
+    top: 0;
+  }
+  main .bg header .logo {
+    padding: 1rem;
+    max-width: 200px;
+  }
+  main .bg header .logo img {
+    width: 100%;
+  }
+  main .bg .box-intro {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: box-intro;
+    margin-top: 1rem;
+    margin: 0 auto;
+    max-width: 420px;
+    height: calc(100vh - 35rem);
+  }
+  main .bg .box-intro h1 {
+    font-size: 2rem;
+    padding: 0 1rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  main .bg .box-intro p {
+    font-size: 0.875rem;
+    padding: 0 1rem;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  main .bg .box-intro form {
+    max-width: calc(100% - 2rem);
+    margin: auto;
+  }
+  main .bg .box-intro form .input {
+    font-size: 0.875rem;
+    padding: 1rem 7.5rem 1rem 2rem;
+  }
+  main .bg .box-intro form .input::-webkit-input-placeholder {
+    font-size: 0.875rem;
+  }
+  main .bg .box-intro form .input:-ms-input-placeholder {
+    font-size: 0.875rem;
+  }
+  main .bg .box-intro form .input::-ms-input-placeholder {
+    font-size: 0.875rem;
+  }
+  main .bg .box-intro form .input::placeholder {
+    font-size: 0.875rem;
+  }
+  main .bg .box-intro form button {
+    padding: 1rem 2rem;
+    font-size: 0.875rem;
+  }
+  main .box-img {
+    background: url(../images/hero-mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 420px) {
+  main .bg .box-intro {
+    max-width: 330px;
+  }
+  main .bg .box-intro h1 {
+    font-size: 1.8rem;
+  }
+  main .bg .box-intro p {
+    font-size: 0.845rem;
+    letter-spacing: 0rem;
+    margin-bottom: 1rem;
+  }
+  main .bg .box-intro form .input {
+    font-size: 0.845rem;
+  }
+  main .bg .box-intro form .input::-webkit-input-placeholder {
+    font-size: 0.845rem;
+  }
+  main .bg .box-intro form .input:-ms-input-placeholder {
+    font-size: 0.845rem;
+  }
+  main .bg .box-intro form .input::-ms-input-placeholder {
+    font-size: 0.845rem;
+  }
+  main .bg .box-intro form .input::placeholder {
+    font-size: 0.845rem;
+  }
+  main .bg .box-intro form button {
+    font-size: 0.845rem;
+  }
+}
+
+@-webkit-keyframes opacy {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes opacy {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 /*# sourceMappingURL=style.css.map */

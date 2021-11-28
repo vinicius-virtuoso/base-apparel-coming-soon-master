@@ -41,7 +41,7 @@ body {
 main {
   height: 100vh;
   display: grid;
-  grid-template-columns: 55% 45%;
+  grid-template-columns: 55% auto;
   grid-template-areas:
     "header box-img"
     "box-intro box-img";
@@ -52,7 +52,7 @@ main {
     background-position: center center;
     background-size: cover;
     height: 100%;
-    padding: 5rem 12rem 5rem 12rem;
+    padding: 7rem 12rem 5rem 12rem;
     header {
       grid-area: header;
 
@@ -67,11 +67,12 @@ main {
       display: flex;
       flex-direction: column;
       grid-area: box-intro;
-      margin-top: 10rem;
+      margin-top: 7rem;
       height: calc(100vh - 30rem);
+      max-width: 550px;
 
       h1 {
-        font-size: 68px;
+        font-size: 5rem;
         font-weight: 600;
         max-width: 80%;
         text-transform: uppercase;
@@ -86,7 +87,7 @@ main {
       p {
         color: $Desaturated-Red;
         font-size: $Font-size;
-        max-width: 80%;
+        width: 100%;
         letter-spacing: 0.1rem;
         margin-top: auto;
         line-height: 1.8;
@@ -94,22 +95,21 @@ main {
 
       form {
         display: flex;
-        align-items: center;
+        flex-direction: column;
         width: 100%;
         height: 50px;
-        max-width: 75%;
+        max-width: 100%;
 
         justify-self: flex-end;
         margin-top: auto;
         position: relative;
 
-        input {
+        .input {
           outline: none;
-          border-radius: 30px;
+          border-radius: 50px;
           width: 100%;
           border: 2px solid $Desaturated-Red;
-          padding: 0 2rem;
-          height: 50px;
+          padding: 1rem 10rem 1rem 2rem;
           font-size: $Font-size;
           font-family: $Font-Family;
           font-weight: 700;
@@ -119,14 +119,24 @@ main {
             opacity: 0.7;
             letter-spacing: 0.15rem;
           }
+          &.error {
+            border: 2px solid $Soft-Red;
+            padding: 1rem 10rem 1rem 2rem;
+          }
+          &.error ~ span.error,
+          &.error ~ .icon-erro {
+            display: block;
+          }
         }
         button {
           border: 0;
-          padding: 1rem 2.5rem;
-          border-radius: 30px;
+          padding: 1rem 3.5rem;
+          height: 52px;
+          border-radius: 50px;
           position: absolute;
           right: 0;
           background: $Linear-normal;
+          border: 2px solid $Linear-normal;
           cursor: pointer;
           transition: 0.3s ease-in-out;
 
@@ -135,16 +145,179 @@ main {
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.479);
           }
         }
+        .icon-erro {
+          display: none;
+          position: absolute;
+          top: 50%;
+          right: 25%;
+          transform: translateY(-50%);
+        }
+        span.error {
+          display: none;
+          color: $Soft-Red;
+          padding: 0.7rem 2rem;
+          animation: opacy 0.3s ease-in-out forwards;
+        }
       }
     }
   }
 
   .box-img {
     grid-area: box-img;
-    img {
-      object-fit: cover;
-      height: 100vh;
+    background: url("../images/hero-desktop.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 1200px) {
+  main {
+    .bg {
       width: 100%;
+      padding: 7rem 3rem 5rem 3rem;
+      .box-intro {
+        max-width: 100%;
+        width: 100%;
+
+        h1 {
+          max-width: 100%;
+          font-size: 3.5rem;
+        }
+        p {
+          max-width: 100%;
+          width: 100%;
+        }
+        form {
+          width: 100%;
+          max-width: 100%;
+          .input {
+            padding: 1rem 7rem 1rem 2rem;
+            &.error {
+              padding: 1rem 7rem 1rem 2rem;
+            }
+          }
+
+          button {
+            height: 50px;
+          }
+          .icon-erro {
+            position: absolute;
+            top: 50%;
+            right: 28%;
+            transform: translateY(-50%);
+          }
+        }
+      }
     }
+  }
+}
+
+@media (max-width: 780px) {
+  main {
+    display: flex;
+    flex-direction: column;
+
+    .bg {
+      padding: 0;
+      order: 2;
+      header {
+        grid-area: header;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        .logo {
+          padding: 1rem;
+
+          max-width: 200px;
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      .box-intro {
+        grid-area: box-intro;
+        margin-top: 1rem;
+        margin: 0 auto;
+        max-width: 420px;
+        height: calc(100vh - 35rem);
+        h1 {
+          font-size: 2rem;
+          padding: 0 1rem;
+          text-align: center;
+          margin-top: 2rem;
+        }
+        p {
+          font-size: 0.875rem;
+          padding: 0 1rem;
+          margin-top: 1rem;
+          text-align: center;
+        }
+        form {
+          max-width: calc(100% - 2rem);
+          margin: auto;
+
+          .input {
+            font-size: 0.875rem;
+            padding: 1rem 7.5rem 1rem 2rem;
+            &::placeholder {
+              font-size: 0.875rem;
+            }
+          }
+          button {
+            padding: 1rem 2rem;
+            font-size: 0.875rem;
+          }
+        }
+      }
+    }
+    .box-img {
+      background: url(../images/hero-mobile.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 60vh;
+      margin-top: 4rem;
+    }
+  }
+}
+@media (max-width: 420px) {
+  main {
+    .bg {
+      .box-intro {
+        max-width: 330px;
+        h1 {
+          font-size: 1.8rem;
+        }
+        p {
+          font-size: 0.845rem;
+          letter-spacing: 0rem;
+          margin-bottom: 1rem;
+        }
+        form {
+          .input {
+            font-size: 0.845rem;
+            &::placeholder {
+              font-size: 0.845rem;
+            }
+          }
+          button {
+            font-size: 0.845rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes opacy {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
