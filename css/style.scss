@@ -109,7 +109,9 @@ main {
           border-radius: 50px;
           width: 100%;
           border: 2px solid $Desaturated-Red;
-          padding: 1rem 10rem 1rem 2rem;
+          padding: 0 10rem 0 2rem;
+          height: 100%;
+          min-height: 65px;
           font-size: $Font-size;
           font-family: $Font-Family;
           font-weight: 700;
@@ -130,25 +132,31 @@ main {
         }
         button {
           border: 0;
-          padding: 1rem 3.5rem;
-          height: 52px;
+          display: flex;
+          justify-content: center;
+          padding: 1rem 0;
+          width: 120px;
+          height: 100%;
+          min-height: 65px;
           border-radius: 50px;
+
           position: absolute;
           right: 0;
+
           background: $Linear-normal;
-          border: 2px solid $Linear-normal;
           cursor: pointer;
           transition: 0.3s ease-in-out;
 
           &:hover {
             transform: scale(1.1);
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.479);
+            filter: brightness(1.2);
           }
         }
         .icon-erro {
           display: none;
           position: absolute;
-          top: 50%;
+          top: 32px;
           right: 25%;
           transform: translateY(-50%);
         }
@@ -193,10 +201,7 @@ main {
           width: 100%;
           max-width: 100%;
           .input {
-            padding: 1rem 7rem 1rem 2rem;
-            &.error {
-              padding: 1rem 7rem 1rem 2rem;
-            }
+            padding: 0rem 7rem 0rem 2rem;
           }
 
           button {
@@ -204,7 +209,7 @@ main {
           }
           .icon-erro {
             position: absolute;
-            top: 50%;
+            top: 32px;
             right: 28%;
             transform: translateY(-50%);
           }
@@ -244,10 +249,13 @@ main {
         max-width: 420px;
         height: calc(100vh - 35rem);
         h1 {
-          font-size: 2rem;
+          font-size: 2.5rem;
           padding: 0 1rem;
           text-align: center;
           margin-top: 2rem;
+          letter-spacing: 0.7rem;
+          font-weight: 600;
+          line-height: 1.2;
         }
         p {
           font-size: 0.875rem;
@@ -261,14 +269,28 @@ main {
 
           .input {
             font-size: 0.875rem;
-            padding: 1rem 7.5rem 1rem 2rem;
+            padding: 0rem 7.5rem 0rem 2rem;
+            min-height: 55px;
+            max-height: 55px;
             &::placeholder {
               font-size: 0.875rem;
             }
           }
           button {
-            padding: 1rem 2rem;
+            padding: 0.5rem 2rem;
             font-size: 0.875rem;
+            height: 55px;
+            max-height: 55px;
+            min-height: 55px;
+            width: 95px;
+          }
+          .icon-erro {
+            top: 27px;
+            right: 28%;
+            transform: translateY(-50%);
+          }
+          span.error {
+            font-size: 12px;
           }
         }
       }
@@ -288,22 +310,37 @@ main {
       .box-intro {
         max-width: 330px;
         h1 {
-          font-size: 1.8rem;
+          font-size: 2rem;
+          letter-spacing: 0.5rem;
         }
         p {
           font-size: 0.845rem;
           letter-spacing: 0rem;
           margin-bottom: 1rem;
+          line-height: 1.4;
         }
         form {
           .input {
+            padding: 0rem 7rem 0rem 2rem;
             font-size: 0.845rem;
+            height: 100%;
+            max-height: 45px;
+            min-height: 45px;
             &::placeholder {
               font-size: 0.845rem;
             }
           }
           button {
+            width: 80px;
+            height: 100%;
+            max-height: 45px;
+            min-height: 45px;
             font-size: 0.845rem;
+          }
+          .icon-erro {
+            top: 22px;
+            right: 30%;
+            transform: translateY(-50%);
           }
         }
       }

@@ -109,7 +109,9 @@ main .bg .box-intro form .input {
   border-radius: 50px;
   width: 100%;
   border: 2px solid #ce9797;
-  padding: 1rem 10rem 1rem 2rem;
+  padding: 0 10rem 0 2rem;
+  height: 100%;
+  min-height: 65px;
   font-size: 16px;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 700;
@@ -151,13 +153,20 @@ main .bg .box-intro form .input.error ~ .icon-erro {
 
 main .bg .box-intro form button {
   border: 0;
-  padding: 1rem 3.5rem;
-  height: 52px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1rem 0;
+  width: 120px;
+  height: 100%;
+  min-height: 65px;
   border-radius: 50px;
   position: absolute;
   right: 0;
   background: linear-gradient(135deg, #f8bfbf 0%, #ee8c8c 100%);
-  border: 2px solid linear-gradient(135deg, #f8bfbf 0%, #ee8c8c 100%);
   cursor: pointer;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
@@ -168,12 +177,14 @@ main .bg .box-intro form button:hover {
           transform: scale(1.1);
   -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.479);
           box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.479);
+  -webkit-filter: brightness(1.2);
+          filter: brightness(1.2);
 }
 
 main .bg .box-intro form .icon-erro {
   display: none;
   position: absolute;
-  top: 50%;
+  top: 32px;
   right: 25%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -221,17 +232,14 @@ main .box-img {
     max-width: 100%;
   }
   main .bg .box-intro form .input {
-    padding: 1rem 7rem 1rem 2rem;
-  }
-  main .bg .box-intro form .input.error {
-    padding: 1rem 7rem 1rem 2rem;
+    padding: 0rem 7rem 0rem 2rem;
   }
   main .bg .box-intro form button {
     height: 50px;
   }
   main .bg .box-intro form .icon-erro {
     position: absolute;
-    top: 50%;
+    top: 32px;
     right: 28%;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
@@ -279,10 +287,13 @@ main .box-img {
     height: calc(100vh - 35rem);
   }
   main .bg .box-intro h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     padding: 0 1rem;
     text-align: center;
     margin-top: 2rem;
+    letter-spacing: 0.7rem;
+    font-weight: 600;
+    line-height: 1.2;
   }
   main .bg .box-intro p {
     font-size: 0.875rem;
@@ -296,7 +307,9 @@ main .box-img {
   }
   main .bg .box-intro form .input {
     font-size: 0.875rem;
-    padding: 1rem 7.5rem 1rem 2rem;
+    padding: 0rem 7.5rem 0rem 2rem;
+    min-height: 55px;
+    max-height: 55px;
   }
   main .bg .box-intro form .input::-webkit-input-placeholder {
     font-size: 0.875rem;
@@ -311,8 +324,21 @@ main .box-img {
     font-size: 0.875rem;
   }
   main .bg .box-intro form button {
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
     font-size: 0.875rem;
+    height: 55px;
+    max-height: 55px;
+    min-height: 55px;
+    width: 95px;
+  }
+  main .bg .box-intro form .icon-erro {
+    top: 27px;
+    right: 28%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  main .bg .box-intro form span.error {
+    font-size: 12px;
   }
   main .box-img {
     background: url(../images/hero-mobile.jpg);
@@ -328,15 +354,21 @@ main .box-img {
     max-width: 330px;
   }
   main .bg .box-intro h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
   }
   main .bg .box-intro p {
     font-size: 0.845rem;
     letter-spacing: 0rem;
     margin-bottom: 1rem;
+    line-height: 1.4;
   }
   main .bg .box-intro form .input {
+    padding: 0rem 7rem 0rem 2rem;
     font-size: 0.845rem;
+    height: 100%;
+    max-height: 45px;
+    min-height: 45px;
   }
   main .bg .box-intro form .input::-webkit-input-placeholder {
     font-size: 0.845rem;
@@ -351,7 +383,17 @@ main .box-img {
     font-size: 0.845rem;
   }
   main .bg .box-intro form button {
+    width: 80px;
+    height: 100%;
+    max-height: 45px;
+    min-height: 45px;
     font-size: 0.845rem;
+  }
+  main .bg .box-intro form .icon-erro {
+    top: 22px;
+    right: 30%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
   }
 }
 
